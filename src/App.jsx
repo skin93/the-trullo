@@ -1,4 +1,5 @@
 import Navbar from 'components/Navbar';
+import Sidebar from 'components/Sidebar';
 import Create from 'pages/Create';
 import Dashboard from 'pages/Dashboard';
 import Login from 'pages/Login';
@@ -20,6 +21,7 @@ const App = () => {
   return (
     <Main>
       <Router>
+        <Sidebar />
         <Container>
           <Navbar />
           <Routes>
