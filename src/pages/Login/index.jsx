@@ -31,7 +31,7 @@ const Login = () => {
 
   return (
     <AuthForm onSubmit={handleSubmit(onSubmit)}>
-      <h2>Sign up</h2>
+      <h2>Login</h2>
       <Label>
         <span>Email:</span>
         <Input {...register('email')} />
