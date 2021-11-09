@@ -18,7 +18,7 @@ const Signup = () => {
         .min(4, 'Password must be at least 4 characters')
         .max(20, 'Password must be at most 20 characters')
         .required('Password is required'),
-      nickname: yup.string().required('Nickname is required'),
+      displayName: yup.string().required('Nickname is required'),
       thumbnail: yup
         .mixed()
         .test('name', 'Image is required', (value) => {
@@ -48,10 +48,10 @@ const Signup = () => {
   const onSubmit = (data) => {
     let email = data.email;
     let password = data.password;
-    let nickname = data.nickname;
+    let displayName = data.displayName;
     let thumbnail = data.thumbnail[0];
 
-    signup(email, password, nickname, thumbnail);
+    signup(email, password, displayName, thumbnail);
   };
 
   return (
@@ -69,8 +69,8 @@ const Signup = () => {
       </Label>
       <Label>
         <span>Nickname:</span>
-        <Input {...register('nickname')} />
-        {errors.nickname && <Error>{errors.nickname.message}</Error>}
+        <Input {...register('displayName')} />
+        {errors.displayName && <Error>{errors.displayName.message}</Error>}
       </Label>
       <Label>
         <span>Profile thumbnail:</span>
