@@ -6,7 +6,10 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
+import { useSignup } from 'hooks/useSignup';
+
 const Signup = () => {
+  const { signup, isPending, error } = useSignup();
   const schema = yup
     .object({
       email: yup.string().email().required('Email is required'),
@@ -37,14 +40,18 @@ const Signup = () => {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    let email = data.email;
+    let password = data.password;
+    let nickname = data.nickname;
+    let thumbnail = data.thumbnail[0];
+
+    signup(email, password, nickname, thumbnail);
   };
 
   return (
@@ -70,7 +77,9 @@ const Signup = () => {
         <Input {...register('thumbnail')} type='file' />
         {errors.thumbnail && <Error>{errors.thumbnail.message}</Error>}
       </Label>
-      <StyledButton type='submit'>Sign up</StyledButton>
+      {!isPending && <StyledButton type='submit'>Sign up</StyledButton>}
+      {isPending && <StyledButton disabled>Loading...</StyledButton>}
+      {error && <Error>{error}</Error>}
     </AuthForm>
   );
 };
