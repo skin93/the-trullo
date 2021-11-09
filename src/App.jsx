@@ -1,3 +1,4 @@
+import Navbar from 'components/Navbar';
 import Create from 'pages/Create';
 import Dashboard from 'pages/Dashboard';
 import Login from 'pages/Login';
@@ -20,6 +21,7 @@ const App = () => {
     <Main>
       <Router>
         <Container>
+          <Navbar />
           <Routes>
             <Route path='/' element={<Dashboard />} />
             <Route path='/create' element={<Create />} />
