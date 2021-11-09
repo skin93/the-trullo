@@ -1,8 +1,10 @@
 import Temple from 'assets/temple.svg';
 import { StyledButton } from 'styles/Button.styled';
 import { Logo, NavItems, StyledLink, StyledNavbar } from './Navbar.styled';
+import { useLogout } from 'hooks/useLogout';
 
 const Navbar = () => {
+  const { isPending, logout } = useLogout();
   return (
     <StyledNavbar>
       <NavItems>
@@ -17,7 +19,8 @@ const Navbar = () => {
           <StyledLink to='/signup'>Signup</StyledLink>
         </li>
         <li>
-          <StyledButton>Logout</StyledButton>
+          {!isPending && <StyledButton onClick={logout}>Logout</StyledButton>}
+          {isPending && <StyledButton disabled>Loading...</StyledButton>}
         </li>
       </NavItems>
     </StyledNavbar>
