@@ -1,4 +1,5 @@
 import Temple from 'assets/temple.svg';
+import { StyledButton } from 'styles/Button.styled';
 import { Logo, NavItems, StyledLink, StyledNavbar } from './Navbar.styled';
 
 const Navbar = () => {
@@ -16,7 +17,7 @@ const Navbar = () => {
           <StyledLink to='/signup'>Signup</StyledLink>
         </li>
         <li>
-          <button className='btn'>Logout</button>
+          <StyledButton>Logout</StyledButton>
         </li>
       </NavItems>
     </StyledNavbar>
