@@ -15,6 +15,7 @@ import Project from 'pages/Project';
 import Signup from 'pages/Signup';
 
 import styled from 'styled-components';
+import Users from 'components/Users';
 
 const Main = styled.main`
   display: flex;
@@ -57,6 +58,7 @@ const App = () => {
               />
             </Routes>
           </Container>
+          {user && <Users />}
         </Router>
       )}
     </Main>
