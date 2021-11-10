@@ -8,6 +8,14 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { Error, StyledButton } from 'styles/GlobalStyle';
+import Avatar from 'components/Avatar';
+import {
+  CommentAuthor,
+  CommentContent,
+  CommentDate,
+  CommentItem,
+  StyledProjectComments,
+} from './ProjectComments.styled';
 
 const ProjectComments = ({ project }) => {
   const { user } = useAuthContext();
@@ -46,8 +54,27 @@ const ProjectComments = ({ project }) => {
   };
 
   return (
-    <div>
+    <StyledProjectComments>
       <h4>Project Comments</h4>
+      <ul>
+        {project.comments.length > 0 &&
+          project.comments.map((comment) => (
+            <CommentItem key={comment.id}>
+              <CommentAuthor>
+                <Avatar
+                  src={comment.photoURL}
+                  alt={`${comment.displayName} avatar`}
+                />
+                <p>{comment.displayName}</p>
+              </CommentAuthor>
+              <CommentDate>
+                <p>{comment.createdAt.toDate().toDateString()}</p>
+              </CommentDate>
+              <CommentContent>{comment.content}</CommentContent>
+            </CommentItem>
+          ))}
+      </ul>
+
       <CommentForm onSubmit={handleSubmit(onSubmit)}>
         <Label>
           <span>Add new comment</span>
@@ -56,7 +83,7 @@ const ProjectComments = ({ project }) => {
         {errors.comment && <Error>{errors.comment.message}</Error>}
         <StyledButton>Add comment</StyledButton>
       </CommentForm>
-    </div>
+    </StyledProjectComments>
   );
 };
 
