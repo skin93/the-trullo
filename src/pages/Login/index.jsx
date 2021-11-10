@@ -1,5 +1,4 @@
-import { AuthForm } from 'pages/Signup/Signup.styled';
-import { Input, Label } from 'styles/Form.styled';
+import { AuthForm, Input, Label } from 'styles/Form.styled';
 
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
