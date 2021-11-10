@@ -1,9 +1,9 @@
-import Temple from 'assets/temple.svg';
-import { StyledButton } from 'styles/Button.styled';
-import { Logo, NavItems, StyledLink, StyledNavbar } from './Navbar.styled';
+import { Fragment } from 'react';
 import { useLogout } from 'hooks/useLogout';
 import { useAuthContext } from 'hooks/useAuthContext';
-import { Fragment } from 'react';
+import Temple from 'assets/temple.svg';
+import { Logo, NavItems, StyledLink, StyledNavbar } from './Navbar.styled';
+import { StyledButton } from 'styles/GlobalStyle';
 
 const Navbar = () => {
   const { user } = useAuthContext();

@@ -24,12 +24,3 @@ export const TextArea = styled.textarea`
   min-height: 160px;
   ${Input}
 `;
-
-export const Error = styled.div`
-  color: red;
-  background: pink;
-  border: 1px solid red;
-  border-radius: 4px;
-  padding: 8px;
-  margin: 10px 0;
-`;

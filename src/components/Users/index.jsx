@@ -1,7 +1,8 @@
 import { useCollection } from 'hooks/useCollection';
+
 import Avatar from 'components/Avatar';
-import { Error } from 'styles/Form.styled';
 import { UserList, UserListItem, UserOnline } from './Users.styled';
+import { Error } from 'styles/GlobalStyle';
 
 const Users = () => {
   const { documents, error } = useCollection('users');

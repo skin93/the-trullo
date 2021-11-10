@@ -1,5 +1,4 @@
-import { StyledButton } from 'styles/Button.styled';
-import { Error, Input, Label } from 'styles/Form.styled';
+import { Input, Label } from 'styles/Form.styled';
 import { AuthForm } from './Signup.styled';
 
 import { useForm } from 'react-hook-form';
@@ -7,6 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import { useSignup } from 'hooks/useSignup';
+import { Error, StyledButton } from 'styles/GlobalStyle';
 
 const Signup = () => {
   const { signup, isPending, error } = useSignup();
