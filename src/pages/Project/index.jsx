@@ -3,6 +3,7 @@ import { useDocument } from 'hooks/useDocument';
 import { Error } from 'styles/GlobalStyle';
 import ProjectSummary from 'components/ProjectSummary';
 import { ProjectDetails } from 'components/ProjectSummary/ProjectSummary.styled';
+import ProjectComments from 'components/ProjectComments';
 
 const Project = () => {
   const { id } = useParams();
@@ -14,6 +15,7 @@ const Project = () => {
   return (
     <ProjectDetails>
       <ProjectSummary project={document} />
+      <ProjectComments project={document} />
     </ProjectDetails>
   );
 };

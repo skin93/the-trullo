@@ -13,6 +13,17 @@ export const CreateFormWrapper = styled.div`
   max-width: 600px;
 `;
 
+export const CommentForm = styled.form`
+  & > label {
+    margin-bottom: 0px;
+  }
+
+  & > textarea {
+    min-height: 40px;
+    font-size: 1.5em;
+  }
+`;
+
 export const Label = styled.label`
   display: block;
   margin: 24px auto;
