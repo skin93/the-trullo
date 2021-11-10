@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Select from 'react-select';
 import { timestamp } from 'firebase/config';
 import { useAuthContext } from 'hooks/useAuthContext';
 import { useCollection } from 'hooks/useCollection';
+import { useFirestore } from 'hooks/useFirestore';
 
 import { Error, PageTitle, StyledButton } from 'styles/GlobalStyle';
 
@@ -14,7 +16,9 @@ import { CreateFormWrapper, Input, Label } from 'styles/Form.styled';
 const Create = () => {
   const { documents } = useCollection('users');
   const { user } = useAuthContext();
+  const { addDocument, response } = useFirestore('projects');
   const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
 
   const categories = [
     { value: 'development', label: 'Development' },
@@ -74,7 +78,7 @@ const Create = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const { name, details, dueDate, category, assignedUsers } = data;
 
     const createdBy = {
@@ -101,7 +105,10 @@ const Create = () => {
       assignedUsersList,
     };
 
-    console.log(project);
+    await addDocument(project);
+    if (!response.error) {
+      navigate('/');
+    }
   };
 
   return (
