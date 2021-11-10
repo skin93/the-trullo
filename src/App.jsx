@@ -31,7 +31,7 @@ const App = () => {
     <Main>
       {authIsReady && (
         <Router>
-          <Sidebar />
+          {user && <Sidebar />}
           <Container>
             <Navbar />
             <Routes>

@@ -1,3 +1,5 @@
+import { useAuthContext } from 'hooks/useAuthContext';
+
 import DashboardIcon from 'assets/dashboard_icon.svg';
 import AddIcon from 'assets/add_icon.svg';
 
@@ -9,14 +11,16 @@ import {
   User,
   StyledNavLink,
 } from './Sidebar.styled';
+import Avatar from 'components/Avatar';
 
 const Sidebar = () => {
+  const { user } = useAuthContext();
   return (
     <StyledSidebar>
       <SidebarContent>
         <User>
-          {/* TODO: avatar and user */}
-          <p>Hey user</p>
+          <Avatar src={user.photoURL} />
+          <p>Hey {user.displayName}</p>
         </User>
         <Links>
           <ul>
