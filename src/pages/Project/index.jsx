@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useDocument } from 'hooks/useDocument';
 import { Error } from 'styles/GlobalStyle';
+import ProjectSummary from 'components/ProjectSummary';
+import { ProjectDetails } from 'components/ProjectSummary/ProjectSummary.styled';
 
 const Project = () => {
   const { id } = useParams();
@@ -10,9 +12,9 @@ const Project = () => {
   if (!document) return <div>Loading...</div>;
 
   return (
-    <div className='project-details'>
-      <h1>{document.name}</h1>
-    </div>
+    <ProjectDetails>
+      <ProjectSummary project={document} />
+    </ProjectDetails>
   );
 };
 
