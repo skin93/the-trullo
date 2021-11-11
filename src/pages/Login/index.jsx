@@ -1,11 +1,11 @@
-import { AuthForm, Input, Label } from 'styles/Form.styled';
+import { useLogin } from 'hooks/useLogin';
 
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
-import { useLogin } from 'hooks/useLogin';
 import { Error, StyledButton } from 'styles/GlobalStyle';
+import { AuthForm, Input, Label } from 'styles/Form.styled';
 
 const Login = () => {
   const { login, isPending, error } = useLogin();

@@ -1,14 +1,15 @@
 import { v4 as uuidv4 } from 'uuid';
-import { useFirestore } from 'hooks/useFirestore';
-import { timestamp } from 'firebase/config';
-import { useAuthContext } from 'hooks/useAuthContext';
-import { CommentForm, Input, Label } from 'styles/Form.styled';
-
 import { useForm } from 'react-hook-form';
+import { useFirestore } from 'hooks/useFirestore';
+import { useAuthContext } from 'hooks/useAuthContext';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { Error, StyledButton } from 'styles/GlobalStyle';
+
+import { timestamp } from 'firebase/config';
+
 import Avatar from 'components/Avatar';
+import { Error, StyledButton } from 'styles/GlobalStyle';
+import { CommentForm, Input, Label } from 'styles/Form.styled';
 import {
   CommentAuthor,
   CommentContent,
@@ -16,6 +17,7 @@ import {
   CommentItem,
   StyledProjectComments,
 } from './ProjectComments.styled';
+
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
 const ProjectComments = ({ project }) => {

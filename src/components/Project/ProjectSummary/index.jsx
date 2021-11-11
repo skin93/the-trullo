@@ -1,6 +1,7 @@
+import { useNavigate } from 'react-router';
 import { useFirestore } from 'hooks/useFirestore';
 import { useAuthContext } from 'hooks/useAuthContext';
-import { useNavigate } from 'react-router';
+
 import Avatar from 'components/Avatar';
 import { PageTitle, StyledButton } from 'styles/GlobalStyle';
 import {

@@ -1,6 +1,7 @@
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-import 'firebase/auth';
+import { initializeApp } from 'firebase/app';
+import { getFirestore, Timestamp } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
+import { getStorage } from 'firebase/storage';
 import 'firebase/storage';
 
 const firebaseConfig = {
@@ -12,11 +13,11 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
-firebase.initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
-const projectFirestore = firebase.firestore();
-const projectAuth = firebase.auth();
-const projectStorage = firebase.storage();
-const timestamp = firebase.firestore.Timestamp;
+const projectFirestore = getFirestore();
+const projectAuth = getAuth();
+const projectStorage = getStorage();
+const timestamp = Timestamp;
 
 export { projectFirestore, projectAuth, projectStorage, timestamp };

@@ -1,10 +1,11 @@
 import { useState } from 'react';
 
-import ProjectFilter from 'components/ProjectFilter';
-import ProjectList from 'components/ProjectList';
 import { useCollection } from 'hooks/useCollection';
 import { useAuthContext } from 'hooks/useAuthContext';
 import { Error, PageTitle } from 'styles/GlobalStyle';
+
+import ProjectFilter from 'components/Project/ProjectFilter';
+import ProjectList from 'components/Project/ProjectList';
 
 const Dashboard = () => {
   const { user } = useAuthContext();

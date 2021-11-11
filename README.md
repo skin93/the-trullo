@@ -13,7 +13,7 @@ We can:
 In my version of the app I've used the following technologies:
 
 - React v17, React Router v6, React Hook Form v7, React Select
-- Firebase v8.5
+- Firebase v9
 - styled-components, yup
 
 ## [DEMO](https://the-trullo.web.app/login)
