@@ -1,5 +1,8 @@
+import { useFirestore } from 'hooks/useFirestore';
+import { useAuthContext } from 'hooks/useAuthContext';
+import { useNavigate } from 'react-router';
 import Avatar from 'components/Avatar';
-import { PageTitle } from 'styles/GlobalStyle';
+import { PageTitle, StyledButton } from 'styles/GlobalStyle';
 import {
   AssignedUsers,
   Details,
@@ -8,10 +11,20 @@ import {
 } from './ProjectSummary.styled';
 
 const ProjectSummary = ({ project }) => {
+  const { user } = useAuthContext();
+  const { deleteDocument } = useFirestore('projects');
+  const navigate = useNavigate();
+
+  const handleClick = (e) => {
+    deleteDocument(project.id);
+    navigate('/');
+  };
+
   return (
     <div>
       <StyledProjectSummary>
         <PageTitle>{project.name}</PageTitle>
+        <p>By {project.createdBy.displayName}</p>
         <DueDate>
           Project due by {project.dueDate.toDate().toDateString()}
         </DueDate>
@@ -25,6 +38,9 @@ const ProjectSummary = ({ project }) => {
           ))}
         </AssignedUsers>
       </StyledProjectSummary>
+      {user.uid === project.createdBy.id && (
+        <StyledButton onClick={handleClick}>Mark as Complete</StyledButton>
+      )}
     </div>
   );
 };

@@ -22,6 +22,10 @@ export const CommentForm = styled.form`
     min-height: 40px;
     font-size: 1.5em;
   }
+
+  & > button {
+    margin-top: 10px;
+  }
 `;
 
 export const Label = styled.label`
