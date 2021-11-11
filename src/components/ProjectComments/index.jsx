@@ -16,6 +16,7 @@ import {
   CommentItem,
   StyledProjectComments,
 } from './ProjectComments.styled';
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
 const ProjectComments = ({ project }) => {
   const { user } = useAuthContext();
@@ -68,7 +69,11 @@ const ProjectComments = ({ project }) => {
                 <p>{comment.displayName}</p>
               </CommentAuthor>
               <CommentDate>
-                <p>{comment.createdAt.toDate().toDateString()}</p>
+                <p>
+                  {formatDistanceToNow(comment.createdAt.toDate(), {
+                    addSuffix: true,
+                  })}
+                </p>
               </CommentDate>
               <CommentContent>{comment.content}</CommentContent>
             </CommentItem>
